@@ -1,0 +1,7 @@
+id,email,rol,ultimo_acceso
+1,admin@stride.com,admin,2026-10-12
+2,ops@stride.com,operador,2026-10-13
+3,finance@stride.com,analista,2026-10-11
+4,support@stride.com,soporte,2026-10-13
+5,marketing@stride.com,marketing,2026-10-10
+6,dev@stride.com,developer,2026-10-13
