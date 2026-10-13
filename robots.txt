@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /config/
+Disallow: /backup/
+Disallow: /private/
+Disallow: /uploads/
+Allow: /
+
+Sitemap: https://tu-dominio.vercel.app/sitemap.xml
