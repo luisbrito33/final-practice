@@ -1,0 +1,18 @@
+{
+  "app_name": "STRIDE",
+  "environment": "production",
+  "api_endpoint": "https://api.stride.com/v1",
+  "db_host": "db.stride.internal",
+  "db_user": "stride_app",
+  "db_password": "S3cr3t_Pr0d_2026!",
+  "jwt_secret": "hs8d9f7g6h5j4k3l2m1n0p",
+  "debug": false,
+  "feature_flags": {
+    "new_checkout": true,
+    "crypto_payments": false,
+    "live_chat": true
+  },
+  "integrations": {
+    
+  }
+}
