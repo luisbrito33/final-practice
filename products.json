@@ -1,0 +1,11 @@
+{
+  "products": [
+    { "id": 1, "name": "Ultra Boost 2026", "category": "Running", "price": 180.00, "stock": 45 },
+    { "id": 2, "name": "Tech Fit Tee", "category": "Training", "price": 45.00, "stock": 120 },
+    { "id": 3, "name": "Windbreaker Pro", "category": "Outdoor", "price": 120.00, "stock": 30 },
+    { "id": 4, "name": "Team Backpack", "category": "Accesorios", "price": 65.00, "stock": 80 },
+    { "id": 5, "name": "Classic Cap", "category": "Accesorios", "price": 28.00, "stock": 200 }
+  ],
+  "total": 5,
+  "updated_at": "2026-10-13T10:30:00Z"
+}
