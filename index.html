@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STRIDE | Performance Sportswear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --muted: #767677;
+      --accent: #000000;
+      --border: #e5e5e5;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font); -webkit-font-smoothing: antialiased; }
+    body { background: var(--bg); color: var(--text); line-height: 1.5; }
+
+    /* TOP BAR */
+    .topbar {
+      background: #000; color: #fff; text-align: center;
+      padding: 8px; font-size: 0.75rem; letter-spacing: 1px;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; background: #fff;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 5%; border-bottom: 1px solid var(--border);
+      z-index: 1000;
+    }
+    .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 4px; }
+    .nav-links { display: flex; gap: 30px; }
+    .nav-links a {
+      text-decoration: none; color: var(--text); font-size: 0.85rem;
+      font-weight: 500; text-transform: uppercase; letter-spacing: 1px;
+      transition: opacity 0.3s;
+    }
+    .nav-links a:hover { opacity: 0.6; }
+    .nav-actions { display: flex; gap: 20px; font-size: 0.85rem; }
+
+    /* HERO */
+    .hero {
+      position: relative; height: 85vh;
+      background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+      display: flex; align-items: flex-end; padding: 80px 5%;
+      color: #fff; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.15) 0%, transparent 60%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 600px; }
+    .hero-tag {
+      font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase;
+      margin-bottom: 15px; opacity: 0.8;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 700;
+      line-height: 1; letter-spacing: -2px; margin-bottom: 25px;
+    }
+    .hero p {
+      font-size: 1rem; margin-bottom: 30px; opacity: 0.9; font-weight: 300;
+    }
+    .btn {
+      display: inline-block; padding: 14px 32px; background: #fff; color: #000;
+      text-decoration: none; font-size: 0.85rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 1px;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .btn:hover { transform: translateY(-2px); background: #f0f0f0; }
+    .btn-outline {
+      background: transparent; color: #fff; border: 1px solid #fff;
+    }
+    .btn-outline:hover { background: #fff; color: #000; }
+
+    /* SECTION HEADER */
+    .section-header {
+      padding: 60px 5% 30px; display: flex; justify-content: space-between;
+      align-items: baseline;
+    }
+    .section-header h2 { font-size: 2rem; font-weight: 700; letter-spacing: -1px; }
+    .section-header a {
+      color: var(--text); text-decoration: none; font-size: 0.85rem;
+      font-weight: 500; text-transform: uppercase; letter-spacing: 1px;
+      border-bottom: 1px solid var(--text); padding-bottom: 2px;
+    }
+
+    /* PRODUCT GRID */
+    .products {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px; padding: 0 5% 80px;
+    }
+    .product-card {
+      cursor: pointer; transition: transform 0.3s;
+    }
+    .product-card:hover { transform: translateY(-5px); }
+    .product-image {
+      aspect-ratio: 1; background: #f5f5f5; margin-bottom: 15px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; color: #ccc; overflow: hidden;
+    }
+    .product-image::after {
+      content: '👟'; font-size: 4rem; opacity: 0.3;
+    }
+    .product-card:nth-child(2) .product-image::after { content: '👕'; }
+    .product-card:nth-child(3) .product-image::after { content: '🧥'; }
+    .product-card:nth-child(4) .product-image::after { content: '🎒'; }
+    .product-card:nth-child(5) .product-image::after { content: '🧢'; }
+    .product-card:nth-child(6) .product-image::after { content: '🧦'; }
+    .product-name { font-size: 0.95rem; font-weight: 500; margin-bottom: 5px; }
+    .product-category { font-size: 0.8rem; color: var(--muted); margin-bottom: 8px; }
+    .product-price { font-size: 0.95rem; font-weight: 600; }
+
+    /* BANNER */
+    .banner {
+      background: #000; color: #fff; padding: 100px 5%; text-align: center;
+    }
+    .banner h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; letter-spacing: -1px; margin-bottom: 20px; }
+    .banner p { max-width: 600px; margin: 0 auto 30px; opacity: 0.8; font-weight: 300; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border); padding: 60px 5% 40px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 40px;
+    }
+    .footer-col h4 {
+      font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 20px;
+    }
+    .footer-col a {
+      display: block; color: var(--muted); text-decoration: none;
+      font-size: 0.85rem; margin-bottom: 10px; transition: color 0.3s;
+    }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom {
+      text-align: center; padding: 30px; color: var(--muted);
+      font-size: 0.8rem; border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">ENVÍO GRATIS EN PEDIDOS SUPERIORES A $50</div>
+
+  <nav>
+    <div class="logo">STRIDE</div>
+    <div class="nav-links">
+      <a href="#">Hombre</a>
+      <a href="#">Mujer</a>
+      <a href="#">Niños</a>
+      <a href="#">Deportes</a>
+      <a href="#">Ofertas</a>
+    </div>
+    <div class="nav-actions">
+      <span>🔍</span>
+      <span>👤</span>
+      <span>🛒</span>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-tag">Nueva Colección 2026</div>
+      <h1>RENDIMIENTO<br>SIN LÍMITES</h1>
+      <p>Diseñado para atletas que no se detienen. Tecnología de punta, comodidad absoluta.</p>
+      <a href="#" class="btn">Comprar Ahora</a>
+      <a href="#" class="btn btn-outline" style="margin-left: 10px;">Ver Colección</a>
+    </div>
+  </section>
+
+  <div class="section-header">
+    <h2>Lo más vendido</h2>
+    <a href="#">Ver todo</a>
+  </div>
+
+  <section class="products">
+    <div class="product-card">
+      <div class="product-image"></div>
+      <div class="product-name">Ultra Boost 2026</div>
+      <div class="product-category">Running</div>
+      <div class="product-price">$180.00</div>
+    </div>
+    <div class="product-card">
+      <div class="product-image"></div>
+      <div class="product-name">Tech Fit Tee</div>
+      <div class="product-category">Training</div>
+      <div class="product-price">$45.00</div>
+    </div>
+    <div class="product-card">
+      <div class="product-image"></div>
+      <div class="product-name">Windbreaker Pro</div>
+      <div class="product-category">Outdoor</div>
+      <div class="product-price">$120.00</div>
+    </div>
+    <div class="product-card">
+      <div class="product-image"></div>
+      <div class="product-name">Team Backpack</div>
+      <div class="product-category">Accesorios</div>
+      <div class="product-price">$65.00</div>
+    </div>
+    <div class="product-card">
+      <div class="product-image"></div>
+      <div class="product-name">Classic Cap</div>
+      <div class="product-category">Accesorios</div>
+      <div class="product-price">$28.00</div>
+    </div>
+    <div class="product-card">
+      <div class="product-image"></div>
+      <div class="product-name">Performance Socks</div>
+      <div class="product-category">Accesorios</div>
+      <div class="product-price">$15.00</div>
+    </div>
+  </section>
+
+  <section class="banner">
+    <h2>ÚNETE AL CLUB STRIDE</h2>
+    <p>Acceso anticipado a lanzamientos, envío gratis y devoluciones sin costo. Solo para miembros.</p>
+    <a href="#" class="btn">Registrarse</a>
+  </section>
+
+  <footer>
+    <div class="footer-col">
+      <h4>Productos</h4>
+      <a href="#">Calzado</a>
+      <a href="#">Ropa</a>
+      <a href="#">Accesorios</a>
+      <a href="#">Novedades</a>
+    </div>
+    <div class="footer-col">
+      <h4>Ayuda</h4>
+      <a href="#">Envíos</a>
+      <a href="#">Devoluciones</a>
+      <a href="#">Guía de tallas</a>
+      <a href="#">Contacto</a>
+    </div>
+    <div class="footer-col">
+      <h4>Empresa</h4>
+      <a href="#">Sobre nosotros</a>
+      <a href="#">Sostenibilidad</a>
+      <a href="#">Carreras</a>
+      <a href="#">Prensa</a>
+    </div>
+    <div class="footer-col">
+      <h4>Síguenos</h4>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+    </div>
+  </footer>
+
+  <div class="footer-bottom">
+    &copy; 2026 STRIDE Performance Inc. Todos los derechos reservados.
+  </div>
+
+</body>
+</html>
